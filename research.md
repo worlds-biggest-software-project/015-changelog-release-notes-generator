@@ -129,14 +129,39 @@ The changelog/release notes generator is a sub-segment of release management too
 
 ---
 
+## Recent Market Research (May 2026)
+
+### Market Size & Trends
+- **Release Notes Management Software Market**: USD 0.16B (2024) → USD 0.32B (2033) at 8% CAGR
+- **Broader SaaS Context**: SaaS market growing 21.7% CAGR through 2030
+- **Key Drivers**: DevOps/CI-CD integration demand, software quality emphasis, rapid release cycles, compliance (SBOM, audit trails)
+
+### Recent AI Integration
+- **SmartNote (2025)**: Production LLM-powered release note generator with academic validation; generates user-focused summaries from code changes, filters internal refactors, handles inconsistent commit conventions
+- **Changeish**: Local LLM-based changelog using Ollama (privacy-focused, cloud-agnostic)
+- **WhatShipped**: Parallel LLM processing for ~100-commit batches with result merging
+- **AI Changelog Generator**: MCP server support, multi-provider LLM compatibility
+
+### Emerging Standards
+- **Conventional Commits v1.0.0**: Now the de facto industry standard beyond Angular projects
+- **W3C Trace Context**: Relevant for correlating releases with deployment traces
+- **Software Bill of Materials (SBOM)**: Emerging compliance requirement driving need for precise, auditable changelogs
+
 ## AI-Native Opportunity
 
 - **~90% of projects don't use Conventional Commits, making rule-based tools useless for most codebases.** An LLM that reads raw commit messages, diff content, and PR descriptions to infer intent — regardless of commit message quality — would work out of the box for virtually any repository. This is the primary reason rule-based tools (semantic-release, git-cliff) have low universal adoption despite technical quality.
 
-- **The gap between "developer-facing CHANGELOG" and "user-facing release notes" is unsolved.** Developers need internal release notes (what changed technically). End users need product-facing announcements (what benefits they gain). No open-source tool generates both from the same source. An AI-native tool that maintains audience awareness — filtering refactors for user notes, expanding API changes for developer notes — would serve both populations from a single pipeline.
+- **The gap between "developer-facing CHANGELOG" and "user-facing release notes" is unsolved.** Developers need internal release notes (what changed technically). End users need product-facing announcements (what benefits they gain). No open-source tool generates both from the same source. An AI-native tool that maintains audience awareness — filtering refactors for user notes, expanding API changes for developer notes — would serve both populations from a single pipeline. SmartNote proved the concept but remains a research prototype.
 
 - **Issue tracker integration is rudimentary.** Release Drafter reads PR labels; nothing more. A tool that fetches the linked Jira/Linear ticket title and description, understands the business context behind the code change, and incorporates it into the release note would produce output meaningfully better than any current tool.
 
 - **Personalization at the reader level is unexplored.** SmartNote (2025) introduced personalized release notes but as a research prototype. A production system that generates different release note versions for different roles (developer, admin, end user) from the same git history addresses a known pain point with no current open-source solution.
 
-- **Complexity: 3, Demand: High.** Among the easiest projects on the candidate list (ranked 6th by complexity). The combination of low build complexity, clear AI advantage, and no quality open-source solution makes this the highest opportunity/effort ratio in the Developer Tools category.
+- **Semantic understanding beyond keyword matching**: AI can identify breaking changes, security fixes, and performance improvements that conventional commit parsing misses entirely.
+
+- **Complexity: 3, Demand: High.** Among the easiest projects on the candidate list (ranked 6th by complexity). The combination of low build complexity, clear AI advantage, proven market validation (SmartNote published 2025), and no mature open-source solution makes this the highest opportunity/effort ratio in the Developer Tools category.
+
+### New References (2025-2026)
+- [SmartNote: An LLM-Powered, Personalized Release Note Generator](https://arxiv.org/html/2505.17977v1)
+- [Released.so - 5 Best Changelog Tools 2025](https://www.released.so/articles/5-best-changelog-tools)
+- [Changeish - Automate your changelog with AI](https://dev.to/itlackey/changeish-automate-your-changelog-with-ai-45kj)
